@@ -83,3 +83,37 @@ php artisan migrate:reset
 ### Eloquent
 
 php artisan make:model Customer -mfsc
+
+Schema::create('customers', function (Blueprint $table) {
+    $table->id();
+    $table->string('email', 128);
+    $table->string('name', 128);
+    $table->string('password', 128);
+    $table->string('phone', 32);
+    $table->smallInteger('status');
+    $table->timestamps();
+});
+
+php artisan make:model Hotel -mfsc
+    $table->id();
+    $table->string('name', 128);
+    $table->string('address', 128);    
+    $table->Interger('rooms', 32);
+    $table->string('phone', 32);
+    $table->smallInteger('status');
+    $table->timestamps();
+
+
+php artisan make:model Room -mfsc
+
+Schema::create('room', function (Blueprint $table) {
+    $table->id();
+    $table->string('name', 128);
+    $table->string('password', 128);
+    $table->string('phone', 32);
+    $table->smallInteger('status');
+    $table->timestamps();
+});
+
+php artisan make:model Booking -mfsc
+

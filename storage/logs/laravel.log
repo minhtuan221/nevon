@@ -2869,3 +2869,523 @@ evon\\public\\index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle(Object
 evon\\server.php(21): require_once('C:\\\\Works\\\\Larave...')
 #37 {main}
 "} 
+[2021-04-03 15:43:31] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'ended_at' (SQL: create table `bookings` (`id` bigint unsigned not null auto_increment primary key, `title` varchar(255) not null, `content` varchar(255) not null, `status` tinyint not null, `started_at` timestamp not null, `ended_at` timestamp not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'ended_at' (SQL: create table `bookings` (`id` bigint unsigned not null auto_increment primary key, `title` varchar(255) not null, `content` varchar(255) not null, `status` tinyint not null, `started_at` timestamp not null, `ended_at` timestamp not null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:678)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('create table `b...', Array, Object(Closure))
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `b...')
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#6 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#8 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 3, false)
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#21 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+
+[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for 'ended_at' at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:471)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(471): PDOStatement->execute()
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(671): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `b...', Array)
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('create table `b...', Array, Object(Closure))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `b...')
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#8 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(24): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 3, false)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-04-03 15:58:47] local.ERROR: SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`rooms` (errno: 150 "Foreign key constraint is incorrectly formed") (SQL: alter table `rooms` add constraint `rooms_hotel_id_foreign` foreign key (`hotel_id`) references `hotels` (`id`)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`rooms` (errno: 150 \"Foreign key constraint is incorrectly formed\") (SQL: alter table `rooms` add constraint `rooms_hotel_id_foreign` foreign key (`hotel_id`) references `hotels` (`id`)) at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:678)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('alter table `ro...', Array, Object(Closure))
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('alter table `ro...', Array, Object(Closure))
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('alter table `ro...')
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('rooms', Object(Closure))
+#6 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_151251_create_rooms_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateRoomsTable->up()
+#8 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateRoomsTable), 'up')
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 3, false)
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#21 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`rooms` (errno: 150 \"Foreign key constraint is incorrectly formed\") at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:471)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(471): PDOStatement->execute()
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(671): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('alter table `ro...', Array)
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('alter table `ro...', Array, Object(Closure))
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('alter table `ro...', Array, Object(Closure))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('alter table `ro...')
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('rooms', Object(Closure))
+#8 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_151251_create_rooms_table.php(28): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateRoomsTable->up()
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateRoomsTable), 'up')
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 3, false)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-04-03 16:02:00] local.ERROR: SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`bookings` (errno: 150 "Foreign key constraint is incorrectly formed") (SQL: alter table `bookings` add constraint `bookings_room_id_foreign` foreign key (`room_id`) references `rooms` (`id`)) {"exception":"[object] (Illuminate\\Database\\QueryException(code: HY000): SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`bookings` (errno: 150 \"Foreign key constraint is incorrectly formed\") (SQL: alter table `bookings` add constraint `bookings_room_id_foreign` foreign key (`room_id`) references `rooms` (`id`)) at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:678)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('alter table `bo...', Array, Object(Closure))
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('alter table `bo...', Array, Object(Closure))
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('alter table `bo...')
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#6 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(29): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#8 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 4, false)
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#21 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+
+[previous exception] [object] (PDOException(code: HY000): SQLSTATE[HY000]: General error: 1005 Can't create table `nevon`.`bookings` (errno: 150 \"Foreign key constraint is incorrectly formed\") at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:471)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(471): PDOStatement->execute()
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(671): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('alter table `bo...', Array)
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('alter table `bo...', Array, Object(Closure))
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('alter table `bo...', Array, Object(Closure))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('alter table `bo...')
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#8 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(29): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 4, false)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 
+[2021-04-03 16:02:14] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'bookings' already exists (SQL: create table `bookings` (`id` bigint unsigned not null auto_increment primary key, `room_id` bigint unsigned not null, `customer_id` bigint unsigned not null, `title` varchar(255) not null, `content` varchar(255) not null, `status` tinyint not null, `started_at` timestamp null, `ended_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'bookings' already exists (SQL: create table `bookings` (`id` bigint unsigned not null auto_increment primary key, `room_id` bigint unsigned not null, `customer_id` bigint unsigned not null, `title` varchar(255) not null, `content` varchar(255) not null, `status` tinyint not null, `started_at` timestamp null, `ended_at` timestamp null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:678)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('create table `b...', Array, Object(Closure))
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `b...')
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#6 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(29): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#8 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 5, false)
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#21 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'bookings' already exists at C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:471)
+[stacktrace]
+#0 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(471): PDOStatement->execute()
+#1 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(671): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `b...', Array)
+#2 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(638): Illuminate\\Database\\Connection->runQueryCallback('create table `b...', Array, Object(Closure))
+#3 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(472): Illuminate\\Database\\Connection->run('create table `b...', Array, Object(Closure))
+#4 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `b...')
+#5 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(359): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(222): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(261): Illuminate\\Database\\Schema\\Builder->create('bookings', Object(Closure))
+#8 C:\\Works\\Laravel\
+evon\\database\\migrations\\2021_04_03_152259_create_bookings_table.php(29): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(392): CreateBookingsTable->up()
+#10 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(401): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#11 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(200): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(CreateBookingsTable), 'up')
+#12 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(165): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Works\\\\Larave...', 5, false)
+#13 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(110): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#14 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(85): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#15 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(541): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#16 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(94): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#17 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#18 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(611): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(136): Illuminate\\Container\\Container->call(Array)
+#23 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Command\\Command.php(256): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#24 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(121): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#25 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(971): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(290): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 C:\\Works\\Laravel\
+evon\\vendor\\symfony\\console\\Application.php(166): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(92): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\Works\\Laravel\
+evon\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\Works\\Laravel\
+evon\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 {main}
+"} 

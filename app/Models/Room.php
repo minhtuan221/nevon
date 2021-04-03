@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Room extends Model
 {
     use HasFactory;
-    
     /**
      * The attributes that are mass assignable.
      *
@@ -16,19 +15,11 @@ class Customer extends Model
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'phone',
+        'description',
+        'floor',
+        'number',
+        'bed',
         'status'
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password'
     ];
 
     /**
@@ -39,6 +30,14 @@ class Customer extends Model
     protected $attributes = [
         'status' => 1,
     ];
+
+    /**
+     * Get the hotel that owns the room.
+     */
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
+    }
 
     /**
      * Get the booking from room.
