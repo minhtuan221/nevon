@@ -1,0 +1,95 @@
+@host = http://localhost:8000
+@token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
+@username = tester
+@id = 1
+@token = adfasfda
+
+
+###### example api
+GET {{host}}/api/alpha HTTP/1.1
+Authorization: Bearer {{token}}
+
+### ------------------   CRUD customers   -------------------
+GET {{host}}/api/customers HTTP/1.1
+Content-Type: application/json
+
+### 
+POST {{host}}/api/customers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "{{username}}",
+    "email": "test@gmail.com",
+    "password": "123456",
+    "phone": "0123456789"
+}
+
+
+### test 1
+POST {{host}}/api/customers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "tester01",
+    "email": "test01@gmail.com",
+    "password": "123456",
+    "phone": "0123456789"
+}
+
+###
+GET {{host}}/api/customers/{{id}} HTTP/1.1
+Content-Type: application/json
+
+### 
+PUT {{host}}/api/customers/{{id}} HTTP/1.1
+content-type: application/json
+
+{
+    "password": "0123456788",
+    "phone": "0123456777",
+    "name": "tester01"
+}
+
+### 
+DELETE  {{host}}/api/customers/{{id}}  HTTP/1.1
+content-type: application/json
+
+### ------------------   CRUD account config   -------------------
+GET {{host}}/api/customers/{{username}}/account_config HTTP/1.1
+Content-Type: application/json
+
+### 
+POST {{host}}/api/customers/{{username}}/account_config HTTP/1.1
+content-type: application/json
+
+{
+  "key": "1234",
+  "consumer_id": "string",
+  "consumer_secret": "string",
+  "private_key": "string",
+  "name": "test"
+}
+
+###
+GET {{host}}/api/customers/{{username}}/account_config/anhnh2?key=1234 HTTP/1.1
+Content-Type: application/json
+
+###
+GET {{host}}/api/customers/{{username}}/account_config/anhnh2?key= HTTP/1.1
+Content-Type: application/json
+
+### 
+PUT {{host}}/api/customers/{{username}}/account_config/anhnh2 HTTP/1.1
+content-type: application/json
+
+{
+  "key": "1234",
+  "consumer_id": "string",
+  "consumer_secret": "string",
+  "private_key": "string",
+  "name": "test"
+}
+
+### 
+DELETE  {{host}}/api/customers/4eo6CCwANJPhk3DoJKfKog HTTP/1.1
+content-type: application/json
