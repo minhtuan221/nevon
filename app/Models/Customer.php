@@ -15,6 +15,7 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
+
         'name',
         'email',
         'password',
@@ -29,7 +30,7 @@ class Customer extends Model
      */
     protected $hidden = [
         'password'
-    ];
+    ]; // nhung thong tin nao ko tra ra 
 
     /**
      * The model's default values for attributes.
@@ -38,7 +39,7 @@ class Customer extends Model
      */
     protected $attributes = [
         'status' => 1,
-    ];
+    ]; // liet ke 1 array  moi phan tu cua array chinh la cac gia tri mac dinhcua 1 truong  trong database 
 
     /**
      * Get the booking from room.

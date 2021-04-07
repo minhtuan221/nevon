@@ -35,32 +35,62 @@ class CustomerController extends Controller
         return True;
     }
 
+    //todo viet function isValid email,phone,password 
     public function store(Request $request)
     {
+        //TODO CONVERT ALL VARIABLES INTO STRINGS: dung strval() biến có thể là thuộc kiểu chuỗi, số nguyên, float hoặc các đối tượng( Object)
+        $name = strval(trim($request->input('name'))); // todo: kiem tra name xoa khoang trang dang trc va sau bien name
         
-        $name = $request->input('name');
-
         if (!$name || !$this::isValidName($name)) {
             return response()->json(['error'=>'name is missing or too short (<6 char) or too long (>128 char)', 400]);
         }
 
+        $email =trim(strtolower($request->input('email')));//todo xoa khoang trang, 
+        // todo check dinh dang email theo bieu thuc chinh quy (REGEX)
+        /*
+        $email = "john.doe@example.com";
+// Remove all illegal characters from email
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+// Validate e-mail
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo("$email is a valid email address");
+} else {
+    echo("$email is not a valid email address");
+}
+*/
+        $reg = "/^[A-Za-z0-9_.]{6,32}@([a-zA-Z0-9]{2,12})(.[a-zA-Z]{2,12})+$/";
 
-        $email = strtolower($request->input('email'));
-        
         if (!$email || !$this::isValidName($email)) {
             return response()->json(['error'=>'email is missing or too short (<6 char) or too long (>128 char)'], 400);
         }
+        if(!preg_match($reg ,$email)){
+            return response()->json(["error"=>"wrong email format"],400) ;
+        }
+// check password 
+        $password = $request->input('password');   
+        $reg_pass="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/";
 
-        $password = $request->input('password');
 
         if (!$password || !$this::isValidName($password)) {
             return response()->json(['error'=>'password is missing or too short (<6 char) or too long (>128 char)', 400]);
         }
+        //todo check password phai co it nhat 1 trong cac ki tu dac biet @,$,#,%,&
+        //todo password phai co it nhat 1 chu viet hoa va 1chu viet thuong
+        //todo ma hoa password ( hash password ) 
+        if(!preg_match($reg_pass,$password)){
+            return response()->json(["error"=>"wrong password format"],400);
+        }
+
         $phone = $request->input('phone');
+        
         if (!$phone) {
             return response()->json(['error'=>'phone is missing'], 400);
         }
-
+        //todo check dung dinh dang so dien thoai do dai >= 8 ki tu so
+        if (!preg_match("/^[0-9]{8,}+$/", $phone)) {
+            return response()->json(['error'=>'wrong phone format'],400);
+        }
+        
         # find email
         // Retrieve the first model matching the query constraints..., return if not found
         $customer = Customer::where('email', $email)->first();
@@ -68,6 +98,7 @@ class CustomerController extends Controller
         if ($customer) {
             return response()->json(['error'=>'email already exist'], 400);
         }
+        //TODO gui email confirm customers 
 
         $customer = Customer::create([
             "name"=> $name,
@@ -81,10 +112,14 @@ class CustomerController extends Controller
 
     public function update(Request $request, Customer $customer)
     {   
+        //todo validate cac truong giong ben tren phan create 
         $update_arr = array();
         $phone = $request->input('phone');
-        
+    
         if ($phone) {
+            if (!preg_match("/^[0-9]{8,}+$/", $phone)) {
+                return response()->json(['error'=>'wrong format phone '],400);
+            }
             $update_arr['phone'] = $phone;
         }
 
@@ -105,8 +140,9 @@ class CustomerController extends Controller
 
     public function delete(Customer $customer)
     {
-        $customer->delete();
+        //todo  convert hard delete into soft delete
 
+        $customer->delete();
         return response()->json(null, 204);
     }
 }

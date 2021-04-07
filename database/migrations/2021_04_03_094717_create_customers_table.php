@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('phone', 32);
             $table->tinyInteger('status');
             $table->timestamps();
+            $table->softDeletes(); //add soft delete
         });
     }
 

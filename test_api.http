@@ -18,10 +18,10 @@ POST {{host}}/api/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "{{username}}",
-    "email": "test@gmail.com",
-    "password": "123456",
-    "phone": "0123456789"
+    "name": "UongHuyHoang",
+    "email": "uonghuy@gmail.com",
+    "password": "Ngoductiep1989",
+    "phone": "091292"
 }
 
 
@@ -33,7 +33,7 @@ content-type: application/json
     "name": "tester01",
     "email": "test01@gmail.com",
     "password": "123456",
-    "phone": "0123456789"
+    "phone": "012345678"
 }
 
 ###
@@ -46,7 +46,7 @@ content-type: application/json
 
 {
     "password": "0123456788",
-    "phone": "0123456777",
+    "phone": "094286",
     "name": "tester01"
 }
 
