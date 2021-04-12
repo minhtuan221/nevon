@@ -1,7 +1,7 @@
 @host = http://localhost:8000
 @token = Bearer e975b15aa477ee440417ea069e8ef728a22933f0
 @username = tester
-@id = 1
+@id = 5
 @token = adfasfda
 
 
@@ -10,29 +10,17 @@ GET {{host}}/api/alpha HTTP/1.1
 Authorization: Bearer {{token}}
 
 ### ------------------   CRUD customers   -------------------
-GET {{host}}/api/customers HTTP/1.1
+GET {{host}}/api/customers?page=2 HTTP/1.1
 Content-Type: application/json
-
-### 
-POST {{host}}/api/customers HTTP/1.1
-content-type: application/json
-
-{
-    "name": "UongHuyHoang",
-    "email": "uonghuy@gmail.com",
-    "password": "Ngoductiep1989",
-    "phone": "091292"
-}
-
 
 ### test 1
 POST {{host}}/api/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "tester01",
-    "email": "test01@gmail.com",
-    "password": "123456",
+    "name": "dinhhaiphong",
+    "email": "tienhoang123@gmail.com",
+    "password": "123456ngotieP",
     "phone": "012345678"
 }
 
@@ -41,55 +29,50 @@ GET {{host}}/api/customers/{{id}} HTTP/1.1
 Content-Type: application/json
 
 ### 
-PUT {{host}}/api/customers/{{id}} HTTP/1.1
+PUT {{host}}/api/hotels/{{id}} HTTP/1.1
 content-type: application/json
 
 {
-    "password": "0123456788",
-    "phone": "094286",
-    "name": "tester01"
+    "address": "89 lang ha",
+    "phone": "0942863806",
+    "name": "khach san hoang gia"
 }
 
 ### 
-DELETE  {{host}}/api/customers/{{id}}  HTTP/1.1
+DELETE  {{host}}/api/hotels/{{id}}  HTTP/1.1
 content-type: application/json
 
-### ------------------   CRUD account config   -------------------
-GET {{host}}/api/customers/{{username}}/account_config HTTP/1.1
+### ------------------   CRUD hotels   -------------------
+GET {{host}}/api/hotels HTTP/1.1
 Content-Type: application/json
 
 ### 
-POST {{host}}/api/customers/{{username}}/account_config HTTP/1.1
+POST {{host}}/api/hotels HTTP/1.1
 content-type: application/json
 
 {
-  "key": "1234",
-  "consumer_id": "string",
-  "consumer_secret": "string",
-  "private_key": "string",
-  "name": "test"
+    "name": "vinhome6",
+    "address": "49 nguyen chi thanh",
+    "phone": "0912924444"
 }
 
 ###
-GET {{host}}/api/customers/{{username}}/account_config/anhnh2?key=1234 HTTP/1.1
-Content-Type: application/json
-
-###
-GET {{host}}/api/customers/{{username}}/account_config/anhnh2?key= HTTP/1.1
+GET {{host}}/api/hotels/6 HTTP/1.1
 Content-Type: application/json
 
 ### 
-PUT {{host}}/api/customers/{{username}}/account_config/anhnh2 HTTP/1.1
+PUT {{host}}/api/hotels/{{id}} HTTP/1.1
 content-type: application/json
 
 {
-  "key": "1234",
-  "consumer_id": "string",
-  "consumer_secret": "string",
-  "private_key": "string",
-  "name": "test"
+    "address": "89 lang ha",
+    "phone": "0942863806",
+    "name": "khach san hoang gia"
 }
 
 ### 
-DELETE  {{host}}/api/customers/4eo6CCwANJPhk3DoJKfKog HTTP/1.1
+DELETE  {{host}}/api/hotels/6  HTTP/1.1
 content-type: application/json
+
+
+

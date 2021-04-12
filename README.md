@@ -83,6 +83,7 @@ php artisan migrate:reset
 ### Eloquent
 
 php artisan make:model Customer -mfsc
+//tạo model đồng thời tạo thêm cả migration, factory, seed và controller các bạn có thể sử dụng flag -mfsc.( giống câu lệnh trên)
 
 Schema::create('customers', function (Blueprint $table) {
     $table->id();
@@ -98,11 +99,10 @@ php artisan make:model Hotel -mfsc
     $table->id();
     $table->string('name', 128);
     $table->string('address', 128);    
-    $table->Interger('rooms', 32);
+    $table->Integer('rooms', 32);
     $table->string('phone', 32);
     $table->smallInteger('status');
     $table->timestamps();
-
 
 php artisan make:model Room -mfsc
 

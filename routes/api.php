@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,10 @@ Route::post('customers', [CustomerController::class, 'store']);
 Route::put('customers/{customer}', [CustomerController::class, 'update']);
 Route::delete('customers/{customer}', [CustomerController::class, 'delete']);
 
+// HotelController
+
+Route::get('hotels', [HotelController::class, 'index']);
+Route::get('hotels/{hotel}', [HotelController::class, 'show']);
+Route::post('hotels', [HotelController::class, 'store']);
+Route::put('hotels/{hotel}', [HotelController::class, 'update']);
+Route::delete('hotels/{hotel}', [HotelController::class, 'delete']);
