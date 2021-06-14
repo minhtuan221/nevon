@@ -115,5 +115,142 @@ Schema::create('room', function (Blueprint $table) {
     $table->timestamps();
 });
 
+
+
+
 php artisan make:model Booking -mfsc
+
+Schema::create('rooms', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('hotel_id')->unsigned();
+            $table->string('name', 128);
+            $table->string('description', 255);
+            $table->smallInteger('floor');
+            $table->smallInteger('number');
+            $table->smallInteger('bed');
+            $table->tinyInteger('status');
+            $table->timestamps();
+            
+            $table->foreign('hotel_id')->references('id')->on('hotels');
+        });
+
+        h1>NTT UNION</h1>
+
+## Tổng quan
+
+<h3>Công nghệ, ngôn ngữ sử dụng:</h3>
+
+- PHP : 7.4 (Laravel 8.x)
+- Nodejs : 15.x
+- PostgreSql : 12.6
+- Proxy: Nginx  : 1.19
+
+<h3>Skills cần có:</h3>
+
+- PHP Laravel framework
+- SASS style : [Tham khảo](https://sass-lang.com/guide)
+- Javascript, Jquery 
+
+<h3>Cấu trúc thư mục làm việc chính:</h3>
+
+- <b>App\Http\Controllers</b> : Điều hướng xử lý dữ liệu sau khi nhận dữ liệu từ request rồi gọi services để xử lý logic.
+    + Admin
+    + User
+- <b>App\Http\Requests</b>: Define validate và xử lý dữ liệu đầu vào.
+- <b>App\Repositories</b> : Xử lý query builder để services sử dụng.
+- <b>App\Services</b> : Xử lý logic sau khi nhận dữ liệu từ repository.
+- <b>App\Utilities</b> : Xử lý logic độc lập gọi kiểu static.
+- <b>resources\build</b> : Chứa code js và style.
+    + css
+        + admin
+        + user
+    + js
+        + admin
+        + user
+- <b>resources\views</b> : Chứa blade file.
+    + admin
+    + user
+        + mobile
+        + pc
+- <b>routes</b> : Chứa config điều hướng dựa trên URL.
+- <b>setupEnv</b> : Toàn bộ file cài đặt trên mồi trường dev.
+
+<h3>Tính năng, packages bổ sung:</h3>
+
+- laravel-snappy : xử lý file pdf + image.
+    + [Document](https://github.com/barryvdh/laravel-snappy#usage)
+- guzzle : lấy dữ liệu thông qua Http request.
+    + [Document](https://laravel.com/docs/8.x/http-client)
+
+## Cài đặt môi trường DEV
+
+<h3>Với môi trường phát triển yêu cầu bắt buộc:</h3>
+
+- Docker : [Cài đặt](https://docs.docker.com/engine/install/)
+- Docker-compose : [Cài đặt](https://docs.docker.com/compose/install/)
+
+<h3>Hướng dẫn cài đặt.</h3>
+
+- *Step 1:* 
+bash
+    $ cd source\setupEnv
+
+
+- *Step 2: Run docker container.*
+bash
+    $ docker-compose up -d
+
+
+- *Step 3: Cài đặt host local.*
+
+Bổ sung 2 dòng sau vào cuối file hosts.
+$xslt
+127.0.0.1 ntt-user.local
+127.0.0.1 ntt-admin.local
+
+
++ Window : C:\Windows\System32\drivers\etc\hosts
++ Ubuntu : sudo vim /etc/hosts
++ MacOS : sudo vim /etc/hosts
+
+- *Step 4: Cài đặt gói thư viện*
+
+Thực hiện theo thứ tự sau:
+
+bash
+    $ cd source\setupEnv
+
+   + Truy cập container workspace.
+bash
+    $ docker-compose exec workspace bash
+
+   + Tải packages php.
+bash
+    $ composer install
+
+   + Tải packages node.
+bash
+    $ npm install
+
+
+   + Compiler code js và code style (mỗi lần sửa file js và style đều chạy lại lênh này).
+bash
+    $ npm run dev
+
+
+   + Chạy migrate database structure + data seeder.
+bash
+    $ php artisan migrate --seed
+
+
+## Coding convention
+p
+
+## Chú ý:
+
+- Mọi thao tác liên quan đến source đều phải thao tác trong container workspace:
+   
+   *=> Truy cập container workspace.*
+bash
+    $ docker-compose exec workspace bash
 

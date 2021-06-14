@@ -18,7 +18,7 @@ class Hotel extends Model
     protected $attributes = [
         'status' => 1,
     ];
-    public function room()
+    public function rooms()
     {
         return $this->hasMany(Room::class);
     }

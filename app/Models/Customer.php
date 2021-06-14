@@ -5,24 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Customer extends Model
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+class Customer extends Authenticatable implements JWTSubject
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory,SoftDeletes,Notifiable;
     
     /**
      * The attributes that are mass assignable.
      * mass assignable là tính năng cho phép lập trình một cách tự động gán các tham số của một HTTP request
      *  vào các biến hoặc đối tượng trong lập trình
      * $fillable để tránh lỗ hổng bảo mật .
-     *Khi đó nếu kẻ xấu gửi thêm user_type là trường không có trong $fillable thi lập tức 
+     *Khi đó nếu kẻ xấu gửi thêm user_type là 1 trường không có trong $fillable thi lập tức 
      *các câu lệnh trên sẽ phát sinh một exception ngay.
      * @var array
      */ 
+    // protected $table = 'customers';
     protected $fillable = [
         'name',
         'email',
         'password',
         'phone',
+        'email_token',
+        'remember_token',
+        'verified',
         'status'
     ];
 
@@ -50,5 +57,18 @@ class Customer extends Model
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+    // 2 hàm quan trong de lay JWT
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims() {
+        return [];
     }
 }

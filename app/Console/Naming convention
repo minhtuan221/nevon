@@ -1,0 +1,10 @@
+convention: tap hop nhung quy tac chung khi lap trinh hay viet code  để cho code dễ nhớ dễ đọc dễ quan ly va bảo tri 
+quy tac dat ten:
+theo camelcase:
+theo pascalcase
+theo snackcase :
+ten class hoac name space thi dat theo pascalcase
+ten method thi dat ten theo quy tac camelcase
+hang so phai dat theo uppercase :
+
+
