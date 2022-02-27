@@ -4,34 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes; // add soft delete
 class Hotel extends Model
 {
-    use HasFactory;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use HasFactory,SoftDeletes; // add Softdelete
+
     protected $fillable = [
         'name',
         'address',
         'phone',
         'status'
     ];
-
-    /**
-     * The model's default values for attributes.
-     *
-     * @var array
-     */
     protected $attributes = [
         'status' => 1,
     ];
-
-    /**
-     * Get the room from Hotel.
-     */
     public function rooms()
     {
         return $this->hasMany(Room::class);
