@@ -7,17 +7,19 @@ use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
-use phpDocumentor\Reflection\PseudoTypes\False_;
-use phpDocumentor\Reflection\PseudoTypes\True_;
-use PhpParser\Node\Expr\Cast\Bool_;
-use function PHPSTORM_META\type;
+// use phpDocumentor\Reflection\PseudoTypes\False_;
+// use phpDocumentor\Reflection\PseudoTypes\True_;
+// use PhpParser\Node\Expr\Cast\Bool_;
+// use function PHPSTORM_META\type;
 use Illuminate\Support\Facades\Auth;
 
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Tymon\JWTAuth\Exceptions\JWTException;
-
+use App\Repositories\Customer\CustomerRepositoryInterface;
 use JWTAuthException;
+use Tymon\JWTAuth\Claims\Custom;
+
 // todo tim hieu lam the nao bao ve cac api bang middle ware authentication 
 // todo tim hieu phan quyen cho cac api 
 // todo confirm email sau khi dang ki
@@ -25,6 +27,21 @@ use JWTAuthException;
 // todo doc ban event trong eloquent 
 class CustomerController extends Controller
 {
+
+    protected $customerRepo;
+
+    public function __construct(CustomerRepositoryInterface $customerRepo)
+    {
+        $this->customerRepo = $customerRepo;
+    }
+
+    public function getAll()
+    {
+        $customer = $this->customerRepo->getAll(); 
+
+        return $customer;
+    }
+
     // get all customers
     public function index(Request $request)
     {
@@ -37,10 +54,32 @@ class CustomerController extends Controller
         //     $customer= Customer:: where('name','LIKE','%'.$name.'%')->paginate(10);
         //     return $customer ;
         // } 
-        $customer = Customer::with(['bookings'])->get(); //dung method all() sẽ lỗi,vi all() ko cho dieu kien di kem vao dc
+        $customer = Customer::all(); // lay ra tat ca ca truong trong bang customer
+        $customer = Customer::select('name', 'phone')->get()->toArray();
+
+        return false;
+        return  $customer;
+
+        dd();
+        // $customer = Customer::with(['bookings'])->get(); //dung method all() sẽ lỗi,vi all() ko cho dieu kien di kem vao dc
+        // $customer= Customer:: all()->load(['bookings']) ; // lazy eager loading
         // return $customer->toJson();
-        return $customer;
+        $customer = Customer::find(1);
+        $customer = $customer->bookings()->get(); // hoac la: Customer::with(['bookings'])
+        $customer = Customer::withCount('bookings')->whereNull('deleted_at')->get(); // whereNull loc doi tuong co delete_at =null
+
+        // $customer= Customer::pluck('name'); //   thao tac voi 1 collection dung method all()
+        $customer = Customer::all()->pluck('name')->toArray(); // pluck  thao tac voi 1 collection tra ve 1 collection 
+        // $customer= Customer:: whereRaw("name=? and id=?",['nguyen viet hung',5])->get();
+        // $customer= Customer::where(["name"=>"nguyen viet hung",
+        // 'id'=>'>=3'])->get();
+        /* withCount()
+        Nếu bạn muốn đếm số lượng các kết quả từ 1 relationship mà không load chúng,
+        bạn có thể sử dụng withCount method, bạn sẽ đặt cột {relation}_count trên result model của bạn
+        */
+        return ($customer); // ->count();  dem so luong ban ghi 
     }
+    
     public function show(Customer $customer)
     {
         $customer = Customer::with('bookings')->find($customer->id);
@@ -91,7 +130,10 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return response()->json(['error' => 'email is missing or too short (<6 char) or too long (>128 char)'], 400);
         }
         if (!preg_match($reg, $email)) {
-            return response()->json(["error" => "wrong email format"], 400);
+            return response()->json(
+                ["error" => "wrong email format"],
+                400
+            );
         }
         // check password 
         $password = $request->input('password');
@@ -126,6 +168,14 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         }
         //TODO gui email confirm customers 
 
+        $customer = new Customer();
+        $customer->name = $name;
+        $customer->email = $email;
+        $customer->password = $password;
+        $customer->phone = $phone;
+        $customer->save(); // luu vao trong database 
+
+        return 200;
         $customer = Customer::create([
             "name" => $name,
             "email" => $email,
@@ -133,7 +183,12 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             "phone" => $phone
         ]);
 
+
         return response()->json($customer, 201);
+
+        return redirect()->action('Admin\AdminNewsController@create'); // Sau khi thực hiện xong, gọi lại function create của Controller AdminNewsController, 
+        //nội dung fuction này là hiển thị lại trang view insert.
+
     }
     // update 
     public function update(Request $request, Customer $customer)
