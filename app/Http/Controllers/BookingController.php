@@ -13,7 +13,7 @@ class BookingController extends Controller
     public function findAllBookByHotelRoom(Request $request, $hotel_id, $room_id)
     {
         //todo them softdelete
-        $hotel = Hotel::where('id',$hotel_id)->get(); // tim co hotel_id ko  
+        $hotel = Hotel::where('id', $hotel_id)->get(); // tim co hotel_id ko  
         if ($hotel->isEmpty()) {
             // isEmpty() kiem tra 1 collection la rỗng ko.
             return response()->json(['ko co hotel', 404]);
@@ -25,7 +25,6 @@ class BookingController extends Controller
         $bookings = Booking::where('room_id', $room_id)->with('customer:id,name,email,phone')->get();
         // luon phai di kem id khi dung method dang tren
         // $bookings = Booking::where('room_id', $room_id)->get() ;
-
         return $bookings;
     }
 
@@ -39,11 +38,12 @@ class BookingController extends Controller
         $matchThese = ['hotel_id' => $hotel_id, 'id' => $room_id];
 
         $room = Room::where($matchThese)->get(); // tim trong bang, room co hotel_id= $hotel_id
-        if ($room->isEmpty()) {
-            return response()->json(['ko co room', 404]);
+        if ($room->isEmpty()) { 
+            return response()->json(['ko co room', 404]); // method isEmpty() check 1 collection la null
         }
 
         $booking = Booking::where('id', $booking_id)->get();
+        //$users = DB::table('users')->get();
         return $booking;
     }
 
@@ -56,7 +56,7 @@ class BookingController extends Controller
         }
         $room = Room::where('hotel_id', $hotel_id)->get(); // tim trong bang, room co hotel_id= $hotel_id
         if ($room->isEmpty()) {
-            return response()->json(['ko co room'],404);
+            return response()->json(['ko co room'], 404);
         }
 
         date_default_timezone_set("Asia/Ho_Chi_Minh");
@@ -66,7 +66,7 @@ class BookingController extends Controller
         $content = $request->input('content');
         $started_at = strtotime($request->input('started_at'));
         $ended_at = strtotime($request->input('ended_at')); // xu li time con co the dung thu vien cacbon trong laravel 
-       
+
         if ($ended_at < $started_at) {
             return response()->json(['message' => 'starting time must be less than closing time'], 400);
         }
@@ -91,26 +91,25 @@ class BookingController extends Controller
             //todo 3 testcases 
             $u = $booking->started_at;
             $v = $booking->ended_at;
-            echo $booking->started_at."\n";
-            echo $booking->ended_at."\n";
+            echo $booking->started_at . "\n";
+            echo $booking->ended_at . "\n";
 
-           if($started_at <=strtotime($u)) {
+            if ($started_at <= strtotime($u)) {
                 echo "$started_at < strtotime($u)\n";
                 echo "thoi gian booking moi k dc nho hon starttime booking cu\n";
-                if(strtotime($u)<= $ended_at ) 
-                 {
-                    return response()->json(["message"=>"lich phong kin"],400);
+                if (strtotime($u) <= $ended_at) {
+                    return response()->json(["message" => "lich phong kin"], 400);
                 }
-            } 
-            if(strtotime($u)< $started_at && $started_at < strtotime($v)) {
+            }
+            if (strtotime($u) < $started_at && $started_at < strtotime($v)) {
                 //todo ko cho dat phong trong truong hop ko dat dc phong thi return loi 
-                return response()->json(["message"=>"khong dc dat phong"],400) ;
-            } 
+                return response()->json(["message" => "khong dc dat phong"], 400);
+            }
         }
 
-             
-        $started_at = date("Y-m-d H:i:s",$started_at);//H:Biểu thị giờ ở định dạng 24 giờ 
-        $ended_at = date("Y-m-d H:i:s",$ended_at);
+
+        $started_at = date("Y-m-d H:i:s", $started_at); //H:Biểu thị giờ ở định dạng 24 giờ 
+        $ended_at = date("Y-m-d H:i:s", $ended_at);
         $booking = Booking::create([
             "room_id" => $room_id,
             "customer_id" => $customer_id,
@@ -122,7 +121,7 @@ class BookingController extends Controller
         //hoac co the dung Model Mass Assignment nhu nay: $user = User::create(Input::all());
         return response()->json($booking, 201);
     }
-    
+
     // UPDATE
     public function updateBookByHotelRoom(Request $request, $hotel_id, $room_id, $booking_id)
     { //todo cho update content, title, started_at,ended_at
