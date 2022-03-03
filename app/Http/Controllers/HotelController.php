@@ -9,10 +9,20 @@ class HotelController extends Controller
 {
     //
 
-    public function index()
+    public function index(Request $request)
     {
-
-        return Hotel::all();
+        $name= trim($request->name) ;
+        // if(!$name){
+        //     $hotel = Hotel::paginate(5);
+        //     return $hotel;
+        //     } else{
+                
+        //         $hotel= Hotel:: where('name','LIKE','%'.$name.'%')->paginate(5);
+        //         return $hotel ;
+        //     }
+            $hotel= Hotel::all() ;
+            return $hotel;
+            //todo list ra các hotel kem theo cac room moi hotel 
     }
 
     // show 1 hotel 
@@ -28,7 +38,7 @@ class HotelController extends Controller
         }
         return True;
     }
-
+// Create hotel
     public function store(Request $request)
     {
         $name = strval(trim($request->input('name')));
@@ -59,38 +69,10 @@ class HotelController extends Controller
     }
 
     // updated 
-    public function update(Request $request, Hotel  $hotel)
+    public function update(Request $request, Hotel $hotel)
     {
       
-        $update_arr = array();
-        $name = $request->input('name');
-        if ($name) {
-            if (!$this::isValidName($name)) {
-                return response()->json(['error'=>'name is missing or too short (<6 char) or too long (>128 char)', 400]);
-            }
-            $update_arr['name'] = $name;
-        }
-        $address = $request->input('address');
-        if($address){
-            if (!$this::isValidName($address)) {
-                return response()->json(['error'=>'address is missing or too short (<6 char) or too long (>128 char)', 400]);
-            }
-            $update_arr['address'] = $address;
-        }
-        $phone = $request->input('phone');
-    
-        if ($phone) {
-            if (!preg_match("/^[0-9]{8,}+$/", $phone)) {
-                return response()->json(['error'=>'wrong format phone '],400);
-            }
-            $update_arr['phone'] = $phone;
-        }
-        
-        if (count($update_arr)>0) {
-            $hotel->update($update_arr);
-        }
-
-        return response()->json($hotel, 200);
+        return " xin chao ban";
     }
 
 

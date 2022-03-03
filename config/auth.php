@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api',
         'passwords' => 'users',
     ],
 
@@ -42,10 +42,15 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+            'driver' => 'jwt', // set to jwt token
+            'provider' => 'customers',
             'hash' => false,
         ],
+        // 'customer-api'=>[
+        //     'driver' => 'jwt',
+        //     'provider' => 'customers',// set the provider
+        //     'hash' => false,
+        // ]
     ],
 
     /*
@@ -71,10 +76,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
+        ],
     ],
 
     /*
